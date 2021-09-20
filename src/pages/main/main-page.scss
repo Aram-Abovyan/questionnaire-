@@ -1,7 +1,28 @@
+.main-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10vh;
+
+  .spaceship-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    img {
+      width: 30vh;
+    }
+  }
+}
+
 .background-image {
   position: absolute;
   object-fit: cover;
   height: 100%;
   width: 100%;
   z-index: -1;
+}
+
+.route-area {
+  width: 30vw;
 }
