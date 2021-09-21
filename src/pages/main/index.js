@@ -9,26 +9,17 @@ import {
   foodexSpaceship,
   powercodeSpaceship,
 } from '../../assets/images/main/spaceships';
-import { gsap, Draggable } from "gsap/all";
-
-gsap.registerPlugin(Draggable);
+import {
+  setRandomMovementTo,
+  makeDraggable,
+} from '../../js/gsap';
 
 export const MainPage = () => {
 
   useEffect(() => {
-    Draggable.create('.spaceship', {
-      bounds: 'body',
-    });
-
-    gsap.timeline()
-    .to('.spaceship',{
-      x: "random(-20, 20, 5)",
-      y: "random(-20, 10, 3)",
-      duration:1,
-      ease:"none",
-      repeat:-1,
-      repeatRefresh:true,
-    });
+    makeDraggable('.spaceship');
+    setRandomMovementTo('.spaceship');
+    
   }, []);
 
   return (
