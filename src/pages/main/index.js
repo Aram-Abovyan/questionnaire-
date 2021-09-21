@@ -1,6 +1,7 @@
 import './main-page.scss';
 import { useEffect } from 'react';
 import backgroundImage from '../../assets/images/main/background.svg';
+import { Background } from '../../components/Background';
 import routeArea from '../../assets/images/main/route-area.svg';
 import {
   binaryxSpaceship,
@@ -35,7 +36,7 @@ export const MainPage = () => {
 
   return (
     <>
-      <img className="background-image" src={backgroundImage} alt="" />
+      <Background backgroundImage={backgroundImage} />
 
       <div className="main-page">
         <img className="route-area" src={routeArea} alt="" />
