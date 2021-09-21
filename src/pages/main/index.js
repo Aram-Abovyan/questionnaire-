@@ -19,7 +19,6 @@ export const MainPage = () => {
   useEffect(() => {
     makeDraggable('.spaceship');
     setRandomMovementTo('.spaceship');
-    
   }, []);
 
   return (

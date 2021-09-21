@@ -13,14 +13,14 @@
     width: 100%;
 
     img {
-      width: 30vh;
+      width: 20vw;
       pointer-events: none;
     }
 
     div {
       display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+      flex-direction: column;
+      justify-content: space-around;
     }
   }
 }
