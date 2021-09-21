@@ -1,5 +1,4 @@
 import { gsap, Draggable } from 'gsap/all';
-import { areElementsIntersect } from './coordinates';
 
 gsap.registerPlugin(Draggable);
 
@@ -15,12 +14,8 @@ export const setRandomMovementTo = (selector) => {
     });
 };
 
-export const makeDraggable = (selector) => {
+export const makeDraggable = (selector, onDragEnd) => {
   Draggable.create(selector, {
-    onDragEnd(e) {
-      if (areElementsIntersect('.route-area', e.target)) {
-        alert();
-      }
-    }
+    onDragEnd,
   });
 };
