@@ -1,5 +1,7 @@
 export const Background = ({ backgroundImage }) => {
   return (
-    <img className="background-image" src={backgroundImage} alt="" />
+    <div className="background-image" style={{backgroundImage: `url(${backgroundImage})`}}>
+
+    </div>
   );
-}
+};

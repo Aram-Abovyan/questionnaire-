@@ -1,5 +1,12 @@
+import { Background } from "../../../components/Background";
+import { getBackgroundImageByPageName } from "../../../js/background";
+
 export const StartingPage = ({ pageName }) => {
   return (
-    <h1>{pageName}</h1>
+    <>
+      <Background
+        backgroundImage={getBackgroundImageByPageName(pageName)}
+      />
+    </>
   );
 };

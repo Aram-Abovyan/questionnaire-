@@ -1,6 +1,6 @@
 import './main-page.scss';
-import { useEffect } from 'react';
-import backgroundImage from '../../assets/images/main/background.svg';
+import { useEffect, useRef } from 'react';
+import backgroundImage from '../../assets/images/main/background.jpg';
 import { Background } from '../../components/Background';
 import routeArea from '../../assets/images/main/route-area.svg';
 import {
@@ -22,16 +22,24 @@ export const MainPage = () => {
 
   const history = useHistory();
 
+  const tl = useRef(null);
+
   const onDragEnd = (event) => {
+    tl.current.play();
+    
     if (areElementsIntersect('.route-area', event.target)) {
       const { category } = event.target.dataset;
       history.push(`/${category}`);
     }
   };
 
+  const onDragStart = ( ) => {
+    tl.current.pause();
+  }
+
   useEffect(() => {
-    makeDraggable('.spaceship', onDragEnd);
-    setRandomMovementTo('.spaceship');
+    makeDraggable('.spaceship', onDragEnd, onDragStart);
+    tl.current = setRandomMovementTo('.spaceship');
   });
 
   return (
