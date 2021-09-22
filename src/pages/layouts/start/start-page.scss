@@ -5,6 +5,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 10vh 0;
 
   .emoji {
     width: 12vw;
@@ -12,5 +13,10 @@
 
   .logo {
     height: 14vh;
+  }
+
+  .start-page-text {
+    margin: 3vh 0 10vh 0;
+    width: 50vw;
   }
 }

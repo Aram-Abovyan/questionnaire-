@@ -20,6 +20,10 @@ import { useHistory } from 'react-router';
 
 export const MainPage = () => {
 
+  const background = {
+    image: backgroundImage,
+  };
+
   const history = useHistory();
 
   const tl = useRef(null);
@@ -44,7 +48,7 @@ export const MainPage = () => {
 
   return (
     <>
-      <Background backgroundImage={backgroundImage} />
+      <Background data={background} />
 
       <div className="main-page">
         <img className="route-area" src={routeArea} alt="" />
