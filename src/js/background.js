@@ -5,8 +5,11 @@ import {
   foodexBackgroundImage,
 } from '../assets/images/start/startPageBackgrounds';
 
-export const getBackgroundImageByPageName = (pageName) => {
-  switch (pageName) {
+import { backgrounds } from '../assets/backgrounds';
+
+
+export const getStartBackgroundImage = (category) => {
+  switch (category) {
     case 'binaryx':
       return binaryxBackgroundImage;
     
@@ -20,6 +23,43 @@ export const getBackgroundImageByPageName = (pageName) => {
       return foodexBackgroundImage;
 
     default:
-      return null;
+      return;
+  }
+};
+
+export const getQuestionBackground = (category) => {
+  switch (category) {
+    case 'binaryx':
+      return {
+        components: backgrounds.binaryx,
+        color: '#FFFFFF',
+      };
+    
+    case 'digital-agency':
+      return {
+        components: backgrounds.digitalAgency,
+        color: '#FFFFFF',
+      };
+
+    case 'ease':
+      return {
+        components: backgrounds.ease,
+        color: '#001237',
+      };
+
+    case 'foodex':
+      return {
+        components: backgrounds.foodex,
+        color: '#FFFFFF',
+      };
+
+    case 'powercode':
+      return {
+        components: backgrounds.powercode,
+        color: '#FFFFFF',
+      };
+
+    default:
+      return;
   }
 };

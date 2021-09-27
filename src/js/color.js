@@ -1,5 +1,5 @@
-export const getButtonColorByPageName = (pageName) => {
-  switch (pageName) {
+export const getButtonColorByCategory = (category) => {
+  switch (category) {
     case 'binaryx':
       return '#FFFFFF';
     
@@ -16,12 +16,12 @@ export const getButtonColorByPageName = (pageName) => {
       return '#0075FC';
 
     default:
-      return null;
+      return;
   }
 };
 
-export const getStartPageTextColorByPageName = (pageName) => {
-  switch (pageName) {
+export const getStartPageTextColorByCategory = (category) => {
+  switch (category) {
     case 'binaryx':
     case 'ease':
     case 'powercode':
@@ -32,12 +32,12 @@ export const getStartPageTextColorByPageName = (pageName) => {
       return 'black';
 
     default:
-      return null;
+      return;
   }
 };
 
-export const getButtonTextColorByPageName = (pageName) => {
-  switch (pageName) {
+export const getButtonTextColorByCategory = (category) => {
+  switch (category) {
     case 'foodex':
     case 'digital-agency':
       return '#FFFFFF';
@@ -52,6 +52,6 @@ export const getButtonTextColorByPageName = (pageName) => {
       return '#081A3D';
 
     default:
-      return null;
+      return;
   }
 };

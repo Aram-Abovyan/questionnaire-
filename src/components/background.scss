@@ -14,3 +14,18 @@
   width: 100%;
   height: 26vh;
 }
+
+.background-component {
+  position: absolute;
+}
+
+.background-left {
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.background-right {
+  right: 0;
+  top: 0;
+}

@@ -1,13 +1,14 @@
 import {
   binaryxLogo,
+  binaryxDarkLogo,
   digitalAgencyLogo,
   easeLogo,
   foodexLogo,
   powercodeLogo,
-} from '../assets/images/logos';
+} from '../assets/logos';
 
-export const getLogoByPageName = (pageName) => {
-  switch (pageName) {
+export const getLogo = (category) => {
+  switch (category) {
     case 'binaryx':
       return binaryxLogo;
     
@@ -24,6 +25,28 @@ export const getLogoByPageName = (pageName) => {
       return powercodeLogo;
 
     default:
-      return null;
+      return;
+  }
+};
+
+export const getHeaderLogo = (category) => {
+  switch (category) {
+    case 'binaryx':
+      return binaryxDarkLogo;
+    
+    case 'digital-agency':
+      return digitalAgencyLogo;
+
+    case 'ease':
+      return easeLogo;
+
+    case 'foodex':
+      return foodexLogo;
+
+    case 'powercode':
+      return powercodeLogo;
+
+    default:
+      return;
   }
 };

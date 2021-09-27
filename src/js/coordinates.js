@@ -1,4 +1,4 @@
-const getCoordinatesOf = (element) => {
+const getCoordinates = (element) => {
 
   if (typeof element === 'string') {
     return document.querySelector(element).getBoundingClientRect();
@@ -7,10 +7,10 @@ const getCoordinatesOf = (element) => {
   return element.getBoundingClientRect();
 };
 
-export const areElementsIntersect = (area, element) => {
+export const areIntersect = (area, element) => {
 
-  const areaCoordinates = getCoordinatesOf(area);
-  const elementCoordinates = getCoordinatesOf(element);
+  const areaCoordinates = getCoordinates(area);
+  const elementCoordinates = getCoordinates(element);
 
   return (elementCoordinates.right > areaCoordinates.left
     && elementCoordinates.left < areaCoordinates.right

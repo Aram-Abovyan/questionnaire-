@@ -1,5 +1,6 @@
 import { MainPage } from './pages/main';
 import { StartingPage } from './pages/layouts/start';
+import { QuestionPage } from './pages/layouts/question';
 import {
   Switch,
   Route,
@@ -13,35 +14,19 @@ function App() {
           <MainPage />
         </Route>
 
-        <Route exact path='/binaryx'>
-          <StartingPage
-            pageName="binaryx"
-          />
+        <Route exact path='/:category/complete'>
+          <StartingPage />
         </Route>
 
-        <Route exact path='/digital-agency'>
-          <StartingPage
-            pageName="digital-agency"
-          />
+        <Route exact path='/:category'>
+          <StartingPage />
         </Route>
 
-        <Route exact path='/ease'>
-          <StartingPage
-            pageName="ease"
-          />
+        <Route exact path='/:category/:questionIndex'>
+          <QuestionPage />
         </Route>
 
-        <Route exact path='/foodex'>
-          <StartingPage
-            pageName="foodex"
-          />
-        </Route>
-
-        <Route exact path='/powercode'>
-          <StartingPage
-            pageName="powercode"
-          />
-        </Route>
+        
       </Switch>
     </div>
   );

@@ -1,12 +1,12 @@
 import './start-page.scss';
 import { useState } from 'react';
 import { Background } from "../../../components/Background";
-import { getBackgroundImageByPageName } from "../../../js/background";
-import { getLogoByPageName } from '../../../js/logo';
+import { getStartBackgroundImage } from "../../../js/background";
+import { getLogo } from '../../../js/logo';
 import {
-  getButtonColorByPageName,
-  getStartPageTextColorByPageName,
-  getButtonTextColorByPageName,
+  getButtonColorByCategory,
+  getStartPageTextColorByCategory,
+  getButtonTextColorByCategory,
 } from '../../../js/color';
 import backgroundTop from '../../../assets/images/start/background-top.png';
 import startEmoji from '../../../assets/images/start/emoji.svg';
@@ -15,33 +15,35 @@ import { Button } from '../../../components/Button';
 import {
   useRouteMatch,
   useHistory,
+  useParams,
 } from 'react-router-dom';
 
-export const StartingPage = ({ pageName }) => {
+export const StartingPage = () => {
+  const { category } = useParams();
+  const [questionIndex, setQuestionIndex] = useState(0);
 
-  const [questions, setQuestions] = useState(localStorage.getItem(pageName));
-
-  const background = {
-    image: getBackgroundImageByPageName(pageName),
+  const backgroundData = {
+    image: getStartBackgroundImage(category),
     top: backgroundTop,
+    color: category === 'powercode' ? 'linear-gradient(202.7deg, #13274F 5.6%, #031335 100.53%)' : '',
   };
 
   const colors = {
-    buttonBackground: getButtonColorByPageName(pageName),
-    buttonText: getButtonTextColorByPageName(pageName),
+    buttonBackground: getButtonColorByCategory(category),
+    buttonText: getButtonTextColorByCategory(category),
   };
 
-  const { path, url } = useRouteMatch();
+  const { url, path } = useRouteMatch();
   const history = useHistory();
 
-  const clickHandler = (pageName) => () => {
-    history.push(`${url}/0`);
+  const clickHandler = () => {
+    history.push(path.includes('complete') ? '/' : `${url}/${questionIndex}`);
   };
 
   return (
     <>
       <Background
-        data={background}
+        data={backgroundData}
       />
 
       <div className="start-page-content">
@@ -53,18 +55,16 @@ export const StartingPage = ({ pageName }) => {
 
           <img
             className="logo"
-            src={getLogoByPageName(pageName)}
+            src={getLogo(category)}
             alt=""
           />
 
-          <StartPageText
-            color={getStartPageTextColorByPageName(pageName)}
-          />
+          <StartPageText color={getStartPageTextColorByCategory(category)}/>
 
           <Button
-            text="LETS START"
+            text={path.includes('complete') ? 'GO TO WEBSITE' : 'LETS START'}
             colors={colors}
-            clickHandler={clickHandler(pageName)}
+            clickHandler={clickHandler}
           />
       </div>
     </>

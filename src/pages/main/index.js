@@ -14,7 +14,7 @@ import {
   setRandomMovementTo,
   makeDraggable,
 } from '../../js/gsap';
-import { areElementsIntersect } from '../../js/coordinates';
+import { areIntersect } from '../../js/coordinates';
 import { useHistory } from 'react-router';
 
 
@@ -31,7 +31,7 @@ export const MainPage = () => {
   const onDragEnd = (event) => {
     tl.current.play();
     
-    if (areElementsIntersect('.route-area', event.target)) {
+    if (areIntersect('.route-area', event.target)) {
       const { category } = event.target.dataset;
       history.push(`/${category}`);
     }
