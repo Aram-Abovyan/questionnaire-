@@ -182,7 +182,7 @@ export const digitalAgency = [
       {
         id: uuidv4(),
         option: 'D. 21 hours, 36 minutes, and 21 seconds',
-        isCorect: false,
+        isCorect: true,
       },
     ],
   },

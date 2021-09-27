@@ -11,6 +11,7 @@ import {
 import backgroundTop from '../../../assets/images/start/background-top.png';
 import startEmoji from '../../../assets/images/start/emoji.svg';
 import { StartPageText } from '../../../components/StartPageText';
+import { CompletePageText } from '../../../components/CompletePageText';
 import { Button } from '../../../components/Button';
 import {
   useRouteMatch,
@@ -59,7 +60,8 @@ export const StartingPage = () => {
             alt=""
           />
 
-          <StartPageText color={getStartPageTextColorByCategory(category)}/>
+          {path.includes('complete') ? <CompletePageText category={category} /> : <StartPageText color={getStartPageTextColorByCategory(category)}/>}
+          
 
           <Button
             text={path.includes('complete') ? 'GO TO WEBSITE' : 'LETS START'}

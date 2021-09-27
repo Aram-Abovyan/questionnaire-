@@ -23,6 +23,10 @@ export const Options = ({
     setChecked(index);
   };
 
+  const style = {
+    color: 'white',
+  };
+
   const handleClick = () => {
     if (checked === null) return;
     if (corectAnswers.find((answer) => answer.id === currentQuestion.options[checked].id)) {
@@ -33,7 +37,7 @@ export const Options = ({
   };
 
   const options = currentQuestion && currentQuestion.options.map((option, index) => (
-    <label key={option.id} className="checkbox-container">{option.option}
+    <label style={category === 'ease' ? style : {}} key={option.id} className="checkbox-container">{option.option}
       <input
         type="checkbox"
         onChange={handleChange(index)}
@@ -45,7 +49,7 @@ export const Options = ({
 
   return (
     <div className="options-content">
-      <p className="question">
+      <p className="question" style={category === 'ease' ? style : {}}>
       <span className="question-number">{`0${+questionIndex + 1}`}</span>
         {currentQuestion ? currentQuestion.question : ''}
       </p>
